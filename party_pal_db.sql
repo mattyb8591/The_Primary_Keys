@@ -1,4 +1,4 @@
--- CREATES SCHEMA
+/* CREATES SCHEMA */
 
 CREATE DATABASE IF NOT EXISTS party_pal;
 USE party_pal;
@@ -106,7 +106,7 @@ CREATE TABLE sponsorships (
 	FOREIGN KEY (event_venue_id) REFERENCES event_venues(event_venue_id)
 );
 
--- DATA POPULATION
+/* DATA POPULATION */
 
 -- Insert users
 INSERT INTO users (first_name, last_name) VALUES 
@@ -935,7 +935,8 @@ INSERT INTO sponsorships (sponsor_id, event_venue_id) VALUES
 (16,16),(17,17),(18,18),(19,19),(20,20),
 (21,21),(22,22),(23,23),(24,24),(25,25);
 
--- QUERIES AND AUTOMATION
+/* QUERIES AND AUTOMATION */
+
 -- A report query using a JOIN to report on an aggregate value with a GROUP BY clause:
 /* This query reports on the number of tickets sold per event. It joins the Events, Tickets, and Sessions tables, 
 groups by the Event ID and name, then orders them from highest to lowest. */
