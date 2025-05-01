@@ -843,7 +843,7 @@ INSERT INTO tickets (attendee_id, session_id, type) VALUES
 (27, 23, 'General'),
 (28, 24, 'VIP'),
 (29, 25, 'General'),
-(30, 26, 'General'),
+(30, 16, 'General'),
 (31, 17, 'VIP'),
 (32, 18, 'General'),
 (33, 19, 'VIP'),
