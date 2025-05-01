@@ -962,7 +962,43 @@ WHERE e.event_id NOT IN (
 );
 
 -- A query to create a view and another query to demonstrate its use:
+CREATE VIEW attendee_emails_numbers AS
+SELECT emails.email, phones.phone_number
+FROM attendees
+INNER JOIN users
+ON attendees.user_id = users.user_id
+INNER JOIN emails
+ON users.user_id = emails.user_id
+INNER JOIN phones
+ON users.user_id = phones.user_id;
+
+SELECT email, phone_number
+FROM attendee_emails_numbers;
 
 -- A trigger that updates or inserts data based on an insert:
+CREATE TABLE IF NOT EXISTS users_audit (
+	audit_user_id INT NOT NULL,
+    audit_time VARCHAR(50),
+	audit_new_user VARCHAR(50)
+);
 
+DELIMITER //
+CREATE TRIGGER user_insert
+	AFTER INSERT ON users
+	FOR EACH ROW 
+	BEGIN
+		INSERT INTO users_audit (audit_user_id, audit_time, audit_new_user)
+        VALUES (new.user_id, NOW(), CONCAT('New row added for: ', new.first_name, ', ', new.last_name));
+	END //
+DELIMITER ;
+
+DROP TRIGGER trigger_example;
 -- A query to demonstrate the trigger's functionality:
+INSERT INTO users (user_id, first_name, last_name)
+VALUES (24, 'Dr.', 'Chase');
+
+SELECT *
+FROM users;
+
+SELECT *
+FROM users_audit;
