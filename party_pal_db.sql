@@ -1,4 +1,4 @@
--- creates tables
+-- CREATES SCHEMA
 
 CREATE DATABASE IF NOT EXISTS party_pal;
 USE party_pal;
@@ -106,9 +106,7 @@ CREATE TABLE sponsorships (
 	FOREIGN KEY (event_venue_id) REFERENCES event_venues(event_venue_id)
 );
 
-
-
--- populating tables
+-- DATA POPULATION
 
 -- Insert users
 INSERT INTO users (first_name, last_name) VALUES 
