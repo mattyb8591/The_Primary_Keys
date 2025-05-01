@@ -1002,7 +1002,7 @@ DROP TRIGGER trigger_example;
 
 -- A query to demonstrate the trigger's functionality:
 INSERT INTO users (user_id, first_name, last_name)
-VALUES (24, 'Dr.', 'Chase');
+VALUES (176, 'Dr.', 'Chase');
 
 SELECT *
 FROM users;
