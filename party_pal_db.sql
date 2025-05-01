@@ -998,11 +998,9 @@ CREATE TRIGGER user_insert
 	END //
 DELIMITER ;
 
-DROP TRIGGER trigger_example;
-
 -- A query to demonstrate the trigger's functionality:
 INSERT INTO users (user_id, first_name, last_name)
-VALUES (176, 'Dr.', 'Chase');
+VALUES (200, 'Dr.', 'Chase');
 
 SELECT *
 FROM users;
